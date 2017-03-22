@@ -8,4 +8,8 @@ class User < ApplicationRecord
        self.password = BCrypt::Password.create self.password
     end
     
+    def is_valid_password?(password)
+        self.password == BCrypt::Engine.hash_secret(password, self.password) 
+    end
+    
 end

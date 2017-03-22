@@ -1,5 +1,6 @@
 class Api::CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :doorkeeper_authorize!
 
   # GET /courses
   # GET /courses.json
